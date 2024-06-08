@@ -1,7 +1,6 @@
+----
 
-
-![colorlog_logo](https://github.com/distressfeelings/colorlog/assets/171761806/57586ad3-a88b-4d76-b6bb-a7a8e444d112)
-
+![colorlog_logo](https://github.com/distressfeelings/lua-colorlog/assets/171761806/bcdee91d-0c3e-4bed-bdbe-d8bb2483c508)
 
 ----
 
@@ -108,5 +107,6 @@ end
 
 ----
 
-![256color](https://github.com/distressfeelings/colorlog/assets/171761806/18644e2d-8956-4e3d-8fef-cba976016c37)
+![256color](https://github.com/distressfeelings/lua-colorlog/assets/171761806/7656b4fd-8ec4-4c93-8029-45e7b16abb7f)
 
+----
