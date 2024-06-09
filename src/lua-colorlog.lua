@@ -12,6 +12,7 @@ luacolorlog.backg_.noend_ = {}
    --===MODES===--
 
    --===JSON===--
+
 local s_json = [[
     {
         "reset": "\u001b[0m",
@@ -676,7 +677,7 @@ local cc = json.decode(s_json) -- decoded colors config data
                     end
                 end
 
-                function luacolorlog.text_.noend_.RGB(r, g, b)
+                function luacolorlog.text_.noend_.rgb(r, g, b)
                         if type(r) == "number" then
                             if type(g) == "number" then
                                 if type(b) == "number" then
