@@ -9,7 +9,6 @@ print("\n")
 
 print("RGB Colors: \n")
 
-local rgb_arg = {}
 math.randomseed(os.time())
 for x = 1, 256 do
     io.write(c_log.backg_.rgb(math.random(1, 256), math.random(1, 256), math.random(1, 256), "RGB") .. " " .. c_log.text_.RGB(math.random(1, 256), math.random(1, 256), math.random(1, 256), "RGB"))

@@ -9,7 +9,7 @@
 ----
 
 **Lua colorlog** is a **log output customizer** for **lua scripts**, to make them more *readlabe*, *understandable* and *beautiful* to *see*!
-the principal objetive is upgrade a little better your lua script output with different variety of colors what the lib offers you, its very
+the principal objetive is upgrade a little better your lua script output with different variety of colors what the lib offers you, it is very
 simple and easy to use, it is made with ANSI escape codes, if you want to know the functions and how to use it visit the [wiki](https://github.com/distressfeelings/lua-colorlog/wiki)
 
 ----
