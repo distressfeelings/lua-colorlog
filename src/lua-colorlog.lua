@@ -6,8 +6,8 @@ local json = require("lunajson")-- LunaJSON lib / for encode and decode json dat
 luacolorlog.text_ = {}
 luacolorlog.backg_ = {}
 
-luacolorlog.text_.setend_ = {}
-luacolorlog.backg_.setend_ = {}
+luacolorlog.text_.noend_ = {}
+luacolorlog.backg_.noend_ = {}
 
    --===MODES===--
 
@@ -67,7 +67,7 @@ local s_json = [[
 
 local cc = json.decode(s_json) -- decoded colors config data
 
-                function luacolorlog.inend()
+                function luacolorlog.setend()
                     return cc.reset
                 end
 
@@ -75,37 +75,37 @@ local cc = json.decode(s_json) -- decoded colors config data
 
                 function luacolorlog.text_.bold(text)
                     if type(text) == "string" then
-                        return cc.basic_escape_colors[1].bold .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.basic_escape_colors[1].bold .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
 
-                function luacolorlog.text_.setend_.bold()
+                function luacolorlog.text_.noend_.bold()
                     return cc.basic_escape_colors[1].bold
                 end
 
                 function luacolorlog.text_.underline(text)
                     if type(text) == "string" then
-                        return cc.basic_escape_colors[1].underline .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.basic_escape_colors[1].underline .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
 
-                function luacolorlog.text_.setend_.underline()
+                function luacolorlog.text_.noend_.underline()
                     return cc.basic_escape_colors[1].underline
                 end
 
                 function luacolorlog.text_.invert(text)
                     if type(text) == "string" then
-                        return cc.basic_escape_colors[1].invert .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.basic_escape_colors[1].invert .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
 
-                function luacolorlog.text_.setend_.invert()
+                function luacolorlog.text_.noend_.invert()
                     return cc.basic_escape_colors[1].invert
                 end
 
@@ -119,7 +119,7 @@ local cc = json.decode(s_json) -- decoded colors config data
 
                 function luacolorlog.text_.black(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].black .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].black .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -127,17 +127,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.black(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].black_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].black_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.black()
+                function luacolorlog.text_.noend_.black()
                     return cc.standard_colors[1].black
                 end
             
-                function luacolorlog.backg_.setend_.black()
+                function luacolorlog.backg_.noend_.black()
                     return cc.standard_colors[1].black_b
                 end
             
@@ -147,7 +147,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.red(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].red .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].red .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -155,17 +155,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.red(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].red_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].red_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.red()
+                function luacolorlog.text_.noend_.red()
                     return cc.standard_colors[1].red
                 end
             
-                function luacolorlog.backg_.setend_.red()
+                function luacolorlog.backg_.noend_.red()
                     return cc.standard_colors[1].red_b
                 end
             
@@ -175,7 +175,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.green(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].green .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].green .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -183,17 +183,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.green(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].green_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].green_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.green()
+                function luacolorlog.text_.noend_.green()
                     return cc.standard_colors[1].green
                 end
             
-                function luacolorlog.backg_.setend_.green()
+                function luacolorlog.backg_.noend_.green()
                     return cc.standard_colors[1].green_b
                 end
             
@@ -203,7 +203,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.yellow(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].yellow .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].yellow .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -211,17 +211,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.yellow(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].yellow_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].yellow_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.yellow()
+                function luacolorlog.text_.noend_.yellow()
                     return cc.standard_colors[1].yellow
                 end
             
-                function luacolorlog.backg_.setend_.yellow()
+                function luacolorlog.backg_.noend_.yellow()
                     return cc.standard_colors[1].yellow_b
                 end
             
@@ -231,7 +231,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.blue(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].blue .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].blue .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -239,17 +239,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.blue(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].blue_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].blue_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.blue()
+                function luacolorlog.text_.noend_.blue()
                     return cc.standard_colors[1].blue
                 end
             
-                function luacolorlog.backg_.setend_.blue()
+                function luacolorlog.backg_.noend_.blue()
                     return cc.standard_colors[1].blue_b
                 end
             
@@ -259,7 +259,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.magenta(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].magenta .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].magenta .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -267,17 +267,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.magenta(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].magenta_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].magenta_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.magenta()
+                function luacolorlog.text_.noend_.magenta()
                     return cc.standard_colors[1].magenta
                 end
             
-                function luacolorlog.backg_.setend_.magenta()
+                function luacolorlog.backg_.noend_.magenta()
                     return cc.standard_colors[1].magenta_b
                 end
             
@@ -287,7 +287,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.cyan(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].cyan .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].cyan .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -295,17 +295,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.cyan(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].cyan_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].cyan_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.cyan()
+                function luacolorlog.text_.noend_.cyan()
                     return cc.standard_colors[1].cyan
                 end
             
-                function luacolorlog.backg_.setend_.cyan()
+                function luacolorlog.backg_.noend_.cyan()
                     return cc.standard_colors[1].cyan_b
                 end
             
@@ -315,7 +315,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.white(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].white .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].white .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -323,17 +323,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.white(text)
                     if type(text) == "string" then
-                        return cc.standard_colors[1].white_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.standard_colors[1].white_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.white()
+                function luacolorlog.text_.noend_.white()
                     return cc.standard_colors[1].white
                 end
             
-                function luacolorlog.backg_.setend_.white()
+                function luacolorlog.backg_.noend_.white()
                     return cc.standard_colors[1].white_b
                 end
             
@@ -349,7 +349,7 @@ local cc = json.decode(s_json) -- decoded colors config data
 
                   function luacolorlog.text_.high_black(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].black .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].black .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -357,17 +357,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.high_black(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].black_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].black_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.high_black()
+                function luacolorlog.text_.noend_.high_black()
                     return cc.high_intensity_colors[1].black
                 end
             
-                function luacolorlog.backg_.setend_.high_black()
+                function luacolorlog.backg_.noend_.high_black()
                     return cc.high_intensity_colors[1].black_b
                 end
             
@@ -377,7 +377,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.high_red(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].red .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].red .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -385,17 +385,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.high_red(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].red_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].red_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.high_red()
+                function luacolorlog.text_.noend_.high_red()
                     return cc.high_intensity_colors[1].red
                 end
             
-                function luacolorlog.backg_.setend_.high_red()
+                function luacolorlog.backg_.noend_.high_red()
                     return cc.high_intensity_colors[1].red_b
                 end
             
@@ -405,7 +405,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.high_green(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].green .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].green .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -413,17 +413,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.high_green(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].green_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].green_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.high_green()
+                function luacolorlog.text_.noend_.high_green()
                     return cc.high_intensity_colors[1].green
                 end
             
-                function luacolorlog.backg_.setend_.high_green()
+                function luacolorlog.backg_.noend_.high_green()
                     return cc.high_intensity_colors[1].green_b
                 end
             
@@ -433,7 +433,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.high_yellow(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].yellow .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].yellow .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -441,17 +441,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.high_yellow(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].yellow_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].yellow_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.high_yellow()
+                function luacolorlog.text_.noend_.high_yellow()
                     return cc.high_intensity_colors[1].yellow
                 end
             
-                function luacolorlog.backg_.setend_.high_yellow()
+                function luacolorlog.backg_.noend_.high_yellow()
                     return cc.high_intensity_colors[1].yellow_b
                 end
             
@@ -461,7 +461,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.high_blue(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].blue .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].blue .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -469,17 +469,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.high_blue(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].blue_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].blue_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.high_blue()
+                function luacolorlog.text_.noend_.high_blue()
                     return cc.high_intensity_colors[1].blue
                 end
             
-                function luacolorlog.backg_.setend_.high_blue()
+                function luacolorlog.backg_.noend_.high_blue()
                     return cc.high_intensity_colors[1].blue_b
                 end
             
@@ -489,7 +489,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.high_magenta(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].magenta .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].magenta .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -497,17 +497,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.high_magenta(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].magenta_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].magenta_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.high_magenta()
+                function luacolorlog.text_.noend_.high_magenta()
                     return cc.high_intensity_colors[1].magenta
                 end
             
-                function luacolorlog.backg_.setend_.high_magenta()
+                function luacolorlog.backg_.noend_.high_magenta()
                     return cc.high_intensity_colors[1].magenta_b
                 end
             
@@ -517,7 +517,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.high_cyan(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].cyan .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].cyan .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -525,17 +525,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.high_cyan(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].cyan_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].cyan_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.high_cyan()
+                function luacolorlog.text_.noend_.high_cyan()
                     return cc.high_intensity_colors[1].cyan
                 end
             
-                function luacolorlog.backg_.setend_.high_cyan()
+                function luacolorlog.backg_.noend_.high_cyan()
                     return cc.high_intensity_colors[1].cyan_b
                 end
             
@@ -545,7 +545,7 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.text_.high_white(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].white .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].white .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
@@ -553,17 +553,17 @@ local cc = json.decode(s_json) -- decoded colors config data
             
                 function luacolorlog.backg_.high_white(text)
                     if type(text) == "string" then
-                        return cc.high_intensity_colors[1].white_b .. " " .. text .. " " .. luacolorlog.inend()
+                        return cc.high_intensity_colors[1].white_b .. " " .. text .. " " .. luacolorlog.setend()
                     else
                         print("luacolorlog ERR:   ANY FINDED. STRING EXPECTED.")
                     end
                 end
             
-                function luacolorlog.text_.setend_.high_white()
+                function luacolorlog.text_.noend_.high_white()
                     return cc.high_intensity_colors[1].white
                 end
             
-                function luacolorlog.backg_.setend_.high_white()
+                function luacolorlog.backg_.noend_.high_white()
                     return cc.high_intensity_colors[1].white_b
                 end
             
@@ -577,7 +577,7 @@ local cc = json.decode(s_json) -- decoded colors config data
                     if type(text) == "string" then
                         if type(number) == "number" then
                             if number <= 256 then
-                                return cc.int256_colors[1].text256 .. number .. cc.int256_colors[1].final256 .. " " .. text .. " " .. luacolorlog.inend()
+                                return cc.int256_colors[1].text256 .. number .. cc.int256_colors[1].final256 .. " " .. text .. " " .. luacolorlog.setend()
                             elseif number > 256 then
                                 print("luacolorlog ERR: NUMBER OF COLOR ESCAPE 256 IS HIGHER THAN 256.")
                             elseif number < 0 then
@@ -591,7 +591,7 @@ local cc = json.decode(s_json) -- decoded colors config data
                     end
                 end
 
-                function luacolorlog.text_.setend_.int256(number)
+                function luacolorlog.text_.noend_.int256(number)
                         if type(number) == "number" then
                             if number <= 256 then
                                 return cc.int256_colors[1].text256 .. number .. cc.int256_colors[1].final256
@@ -609,7 +609,7 @@ local cc = json.decode(s_json) -- decoded colors config data
                     if type(text) == "string" then
                         if type(number) == "number" then
                             if number <= 256 then
-                                return cc.int256_colors[1].background256 .. number .. cc.int256_colors[1].final256 .. " " .. text .. " " .. luacolorlog.inend()
+                                return cc.int256_colors[1].background256 .. number .. cc.int256_colors[1].final256 .. " " .. text .. " " .. luacolorlog.setend()
                             elseif number > 256 then
                                 print("luacolorlog ERR: NUMBER OF COLOR ESCAPE 256 IS HIGHER THAN 256.")
                             elseif number < 0 then
@@ -623,7 +623,7 @@ local cc = json.decode(s_json) -- decoded colors config data
                     end
                 end
 
-                function luacolorlog.backg_.setend_.int256(number)
+                function luacolorlog.backg_.noend_.int256(number)
                         if type(number) == "number" then
                             if number <= 256 then
                                 return cc.int256_colors[1].background256 .. number .. cc.int256_colors[1].final256
@@ -643,7 +643,7 @@ local cc = json.decode(s_json) -- decoded colors config data
 
                 --===RGB COLORS===--
 
-                function luacolorlog.text_.RGB(r, g, b, text)
+                function luacolorlog.text_.rgb(r, g, b, text)
                     if type(text) == "string" then
                         if type(r) == "number" then
                             if type(g) == "number" then
@@ -652,7 +652,7 @@ local cc = json.decode(s_json) -- decoded colors config data
                                         if g <= 256 and g > 0 then
                                             if b <= 256 and b > 0 then
                                                 local delimitator = cc.RGB_colors[1].delimitatorRGB
-                                                return cc.RGB_colors[1].textRGB .. delimitator .. r .. delimitator .. g .. delimitator .. b .. cc.RGB_colors[1].finalRGB .. " " .. text .. " " .. luacolorlog.inend()
+                                                return cc.RGB_colors[1].textRGB .. delimitator .. r .. delimitator .. g .. delimitator .. b .. cc.RGB_colors[1].finalRGB .. " " .. text .. " " .. luacolorlog.setend()
                                             else
                                                 print("luacolorlog ERR: B NUMBER IS HIGHER THAN 256 OR LOWER THAN 0.")
                                             end
@@ -676,7 +676,7 @@ local cc = json.decode(s_json) -- decoded colors config data
                     end
                 end
 
-                function luacolorlog.text_.setend_.RGB(r, g, b)
+                function luacolorlog.text_.noend_.RGB(r, g, b)
                         if type(r) == "number" then
                             if type(g) == "number" then
                                 if type(b) == "number" then
@@ -715,7 +715,7 @@ local cc = json.decode(s_json) -- decoded colors config data
                                             if g <= 256 and g > 0 then
                                                 if b <= 256 and b > 0 then
                                                     local delimitator = cc.RGB_colors[1].delimitatorRGB
-                                                    return cc.RGB_colors[1].backgroundRGB .. delimitator .. r .. delimitator .. g .. delimitator .. b .. cc.RGB_colors[1].finalRGB .. " " .. text .. " " .. luacolorlog.inend()
+                                                    return cc.RGB_colors[1].backgroundRGB .. delimitator .. r .. delimitator .. g .. delimitator .. b .. cc.RGB_colors[1].finalRGB .. " " .. text .. " " .. luacolorlog.setend()
                                                 else
                                                     print("luacolorlog ERR: B NUMBER IS HIGHER THAN 256 OR LOWER THAN 0.")
                                                 end
@@ -739,7 +739,7 @@ local cc = json.decode(s_json) -- decoded colors config data
                         end
                     end
     
-                    function luacolorlog.backg_.setend_.rgb(r, g, b)
+                    function luacolorlog.backg_.noend_.rgb(r, g, b)
                             if type(r) == "number" then
                                 if type(g) == "number" then
                                     if type(b) == "number" then
