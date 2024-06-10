@@ -14,6 +14,19 @@ simple and easy to use, it is made with ANSI escape codes, if you want to know t
 
 ----
 
+# Current Version:
+
+## v1.1-1
+
+Version **v1.1-1** contains:
+
+1. *diferent variety of colors for text*
+2. *diferent variety of colors for background*
+3. *extended color compatibility (256 Colors & RGB)*
+4. *diferent types of informants (INF & SCC & ERR & WRN)*
+
+----
+
 # installation
 
 

@@ -11,6 +11,6 @@ print("RGB Colors: \n")
 
 math.randomseed(os.time())
 for x = 1, 256 do
-    io.write(c_log.backg_.rgb(math.random(1, 256), math.random(1, 256), math.random(1, 256), "RGB") .. " " .. c_log.text_.RGB(math.random(1, 256), math.random(1, 256), math.random(1, 256), "RGB"))
+    io.write(c_log.backg_.rgb(math.random(1, 256), math.random(1, 256), math.random(1, 256), "RGB") .. " " .. c_log.text_.rgb(math.random(1, 256), math.random(1, 256), math.random(1, 256), "RGB"))
 end
 

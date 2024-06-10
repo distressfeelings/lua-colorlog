@@ -9,6 +9,11 @@ luacolorlog.backg_ = {}
 luacolorlog.text_.noend_ = {}
 luacolorlog.backg_.noend_ = {}
 
+luacolorlog.inf = {}
+luacolorlog.scc = {}
+luacolorlog.err = {}
+luacolorlog.wrn = {}
+
    --===MODES===--
 
    --===JSON===--
@@ -574,7 +579,7 @@ local cc = json.decode(s_json) -- decoded colors config data
 
                 --===256 COLORS===--
 
-                function luacolorlog.text_.int256(number, text)
+                function luacolorlog.text_.colors256(number, text)
                     if type(text) == "string" then
                         if type(number) == "number" then
                             if number <= 256 then
@@ -592,7 +597,7 @@ local cc = json.decode(s_json) -- decoded colors config data
                     end
                 end
 
-                function luacolorlog.text_.noend_.int256(number)
+                function luacolorlog.text_.noend_.colors256(number)
                         if type(number) == "number" then
                             if number <= 256 then
                                 return cc.int256_colors[1].text256 .. number .. cc.int256_colors[1].final256
@@ -606,7 +611,7 @@ local cc = json.decode(s_json) -- decoded colors config data
                         end
                 end
 
-                function luacolorlog.backg_.int256(number, text)
+                function luacolorlog.backg_.colors256(number, text)
                     if type(text) == "string" then
                         if type(number) == "number" then
                             if number <= 256 then
@@ -624,7 +629,7 @@ local cc = json.decode(s_json) -- decoded colors config data
                     end
                 end
 
-                function luacolorlog.backg_.noend_.int256(number)
+                function luacolorlog.backg_.noend_.colors256(number)
                         if type(number) == "number" then
                             if number <= 256 then
                                 return cc.int256_colors[1].background256 .. number .. cc.int256_colors[1].final256
@@ -771,5 +776,112 @@ local cc = json.decode(s_json) -- decoded colors config data
                         end
 
                 --===RGB COLORS===--
+                
+                --===INFORMANTS===--
 
+                        function luacolorlog.inf(keycode, color, text, highlight)
+
+                            if keycode == nil then keycode = "$" end
+                            if color == nil then color = "white" end
+                            if text == nil then text = "" end
+                            if highlight == nil then highlight = false end
+
+                            keycode = tostring(keycode)
+                            color = tostring(color)
+                            text = tostring(text)
+                            if type(highlight) ~= "boolean" then highlight = false end
+                                
+                                if highlight == false then
+
+                                    if color == "black" then
+                                        return "[" .. luacolorlog.text_.black(keycode) .. "] " .. luacolorlog.text_.black(text)
+                                    elseif color == "red" then
+                                        return error("LUA-COLORLOG ERR: INF INFORMANT CANT BE RED COLOR. ")
+                                    elseif color == "green" then
+                                        return error("LUA-COLORLOG ERR: INF INFORMANT CANT BE GREEN COLOR. ")
+                                    elseif color == "yellow" then
+                                        return error("LUA-COLORLOG ERR: INF INFORMANT CANT BE YELLOW COLOR. ")
+                                    elseif color == "blue" then
+                                        return "[" .. luacolorlog.text_.blue(keycode) .. "] " .. luacolorlog.text_.blue(text)
+                                    elseif color == "magenta" then
+                                        return "[" .. luacolorlog.text_.magenta(keycode) .. "] " .. luacolorlog.text_.magenta(text)
+                                    elseif color == "cyan" then
+                                        return "[" .. luacolorlog.text_.cyan(keycode) .. "] " .. luacolorlog.text_.cyan(text)
+                                    elseif color == "white" then
+                                        return "[" .. luacolorlog.text_.white(keycode) .. "] " .. luacolorlog.text_.white(text)
+                                    end
+
+                                else
+
+                                    if color == "black" then
+                                        return "[" .. luacolorlog.text_.high_black(keycode) .. "] " .. luacolorlog.text_.high_black(text)
+                                    elseif color == "red" then
+                                        return "[" .. luacolorlog.text_.high_red(keycode) .. "] " .. luacolorlog.text_.high_red(text)
+                                    elseif color == "green" then
+                                        return "[" .. luacolorlog.text_.high_green(keycode) .. "] " .. luacolorlog.text_.high_green(text)
+                                    elseif color == "yellow" then
+                                        return "[" .. luacolorlog.text_.high_yellow(keycode) .. "] " .. luacolorlog.text_.high_yellow(text)
+                                    elseif color == "blue" then
+                                        return "[" .. luacolorlog.text_.high_blue(keycode) .. "] " .. luacolorlog.text_.high_blue(text)
+                                    elseif color == "magenta" then
+                                        return "[" .. luacolorlog.text_.high_magenta(keycode) .. "] " .. luacolorlog.text_.high_magenta(text)
+                                    elseif color == "cyan" then
+                                        return "[" .. luacolorlog.text_.high_cyan(keycode) .. "] " .. luacolorlog.text_.high_cyan(text)
+                                    elseif color == "white" then
+                                        return "[" .. luacolorlog.text_.high_white(keycode) .. "] " .. luacolorlog.text_.high_white(text)
+                                end
+                            end                            
+                        end
+
+                        function luacolorlog.scc(keycode, text, highlight)
+
+                            if keycode == nil then keycode = "C:" end
+                            if text == nil then text = "" end
+
+                            keycode = tostring(keycode)
+                            text = tostring(text)
+                            if type(highlight) ~= "boolean" then highlight = false end
+                                
+                                if highlight == false then
+                                    return "[" .. luacolorlog.text_.green(keycode) .. "] " .. luacolorlog.text_.green(text)
+                                else
+                                    return "[" .. luacolorlog.text_.high_green(keycode) .. "] " .. luacolorlog.text_.high_green(text)
+                                end
+                        end
+                        
+                        function luacolorlog.err(keycode, text, highlight)
+                            
+                            if keycode == nil then keycode = ":C" end
+                            if text == nil then text = "" end
+
+                            keycode = tostring(keycode)
+                            text = tostring(text)
+                            if type(highlight) ~= "boolean" then highlight = false end
+
+                            if highlight == false then
+                                return "[" .. luacolorlog.text_.red(keycode) .. "] " .. luacolorlog.text_.red(text)
+                            else
+                                return "[" .. luacolorlog.text_.high_red(keycode) .. "] " .. luacolorlog.text_.high_red(text)
+                            end
+                            
+                        end
+
+                        function luacolorlog.wrn(keycode, text, highlight)
+
+                            if keycode == nil then keycode = "!" end
+                            if text == nil then text = "" end
+
+                            keycode = tostring(keycode)
+                            text = tostring(text)
+                            if type(highlight) ~= "boolean" then highlight = false end
+
+                            if highlight == false then
+                                return "[" .. luacolorlog.text_.yellow(keycode) .. "] " .. luacolorlog.text_.yellow(text)
+                            else
+                                return "[" .. luacolorlog.text_.high_yellow(keycode) .. "] " .. luacolorlog.text_.high_yellow(text)
+                            end
+                            
+                        end
+
+                --===INFORMANTS===--
 return luacolorlog
