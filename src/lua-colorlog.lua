@@ -1,6 +1,4 @@
 local luacolorlog = {}
-local json = require("lunajson")-- LunaJSON lib / for encode and decode json data to lua.
-
    --===MODES===--
 
 luacolorlog.text_ = {}
@@ -16,62 +14,59 @@ luacolorlog.wrn = {}
 
    --===MODES===--
 
-   --===JSON===--
+--===HARDCODED COLORS===--
 
-local s_json = [[
-    {
-        "reset": "\u001b[0m",
-        "basic_escape_colors": [
-            {
-                "bold": "\u001b[1m",
-                "underline": "\u001b[4m",
-                "invert": "\u001b[7m"
-            }
-        ],
-        "standard_colors": [
-            {
-                "black": "\u001b[30m", "black_b": "\u001b[40m",
-                "red": "\u001b[31m", "red_b": "\u001b[41m",
-                "green": "\u001b[32m", "green_b": "\u001b[42m",
-                "yellow": "\u001b[33m", "yellow_b": "\u001b[43m",
-                "blue": "\u001b[34m", "blue_b": "\u001b[44m",
-                "magenta": "\u001b[35m", "magenta_b": "\u001b[45m",
-                "cyan": "\u001b[36m", "cyan_b": "\u001b[46m",
-                "white": "\u001b[37m", "white_b": "\u001b[47m"
-            }
-        ],
-        "high_intensity_colors": [
-            {
-                "black": "\u001b[30;1m", "black_b": "\u001b[40;1m",
-                "red": "\u001b[31;1m", "red_b": "\u001b[41;1m",
-                "green": "\u001b[32;1m", "green_b": "\u001b[42;1m",
-                "yellow": "\u001b[33;1m", "yellow_b": "\u001b[43;1m",
-                "blue": "\u001b[34;1m", "blue_b": "\u001b[44;1m",
-                "magenta": "\u001b[35;1m", "magenta_b": "\u001b[45;1m",
-                "cyan": "\u001b[36;1m", "cyan_b": "\u001b[46;1m",
-                "white": "\u001b[37;1m", "white_b": "\u001b[47;1m"
-            }
-        ],
-        "int256_colors": [
-            {
-                "text256": "\u001b[38;5;", 
-                "background256": "\u001b[48;5;",
-                "final256": "m"
-            }
-        ],
-        "RGB_colors": [
-            {
-                "textRGB": "\u001b[38;2",
-                "backgroundRGB": "\u001b[48;2",
-                "delimitatorRGB": ";",
-                "finalRGB": "m"
-            }
-        ]
+local cc = {
+    reset = "\u001b[0m",
+    basic_escape_colors = {
+        {
+            bold = "\u001b[1m",
+            underline = "\u001b[4m",
+            invert = "\u001b[7m"
+        }
+    },
+    standard_colors = {
+        {
+            black = "\u001b[30m", black_b = "\u001b[40m",
+            red = "\u001b[31m", red_b = "\u001b[41m",
+            green = "\u001b[32m", green_b = "\u001b[42m",
+            yellow = "\u001b[33m", yellow_b = "\u001b[43m",
+            blue = "\u001b[34m", blue_b = "\u001b[44m",
+            magenta = "\u001b[35m", magenta_b = "\u001b[45m",
+            cyan = "\u001b[36m", cyan_b = "\u001b[46m",
+            white = "\u001b[37m", white_b = "\u001b[47m"
+        }
+    },
+    high_intensity_colors = {
+        {
+            black = "\u001b[30;1m", black_b = "\u001b[40;1m",
+            red = "\u001b[31;1m", red_b = "\u001b[41;1m",
+            green = "\u001b[32;1m", green_b = "\u001b[42;1m",
+            yellow = "\u001b[33;1m", yellow_b = "\u001b[43;1m",
+            blue = "\u001b[34;1m", blue_b = "\u001b[44;1m",
+            magenta = "\u001b[35;1m", magenta_b = "\u001b[45;1m",
+            cyan = "\u001b[36;1m", cyan_b = "\u001b[46;1m",
+            white = "\u001b[37;1m", white_b = "\u001b[47;1m"
+        }
+    },
+    int256_colors = {
+        {
+            text256 = "\u001b[38;5;", 
+            background256 = "\u001b[48;5;",
+            final256 = "m"
+        }
+    },
+    RGB_colors = {
+        {
+            textRGB = "\u001b[38;2",
+            backgroundRGB = "\u001b[48;2",
+            delimitatorRGB = ";",
+            finalRGB = "m"
+        }
     }
-]]
-   --===JSON===--
+}
 
-local cc = json.decode(s_json) -- decoded colors config data
+--===HARDCODED COLORS===--
 
                 function luacolorlog.setend()
                     return cc.reset
